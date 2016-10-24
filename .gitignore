@@ -7,3 +7,4 @@
 /build
 /captures
 .externalNativeBuild
+/gradle/wrapper/gradle-2.14.1-all.zip
