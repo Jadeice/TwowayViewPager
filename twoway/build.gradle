@@ -40,8 +40,8 @@ install {
         pom.project {
             packaging 'aar'
             // Add your description here
-            name 'base'
-            description = 'base'
+            name 'twoway'
+            description = 'two-way ViewPager'
             url siteUrl
             // Set your license
             licenses {
