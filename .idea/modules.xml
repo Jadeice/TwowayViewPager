@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Jade.iml" filepath="$PROJECT_DIR$/Jade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Twoway.iml" filepath="$PROJECT_DIR$/Twoway.iml" />
       <module fileurl="file://$PROJECT_DIR$/twoway/twoway.iml" filepath="$PROJECT_DIR$/twoway/twoway.iml" />
       <module fileurl="file://$PROJECT_DIR$/twoway-sample/twoway-sample.iml" filepath="$PROJECT_DIR$/twoway-sample/twoway-sample.iml" />
     </modules>
