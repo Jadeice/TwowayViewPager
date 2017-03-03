@@ -2,8 +2,8 @@
 TwowayViewPager can be used on Mobile and TV
 
 简单使用
-
-    <android.support.v4.view.TwowayViewPager
+   
+    <android.support.v4.view.TwowayViewPager
     ....
     />
     
