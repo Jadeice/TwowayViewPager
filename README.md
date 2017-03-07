@@ -2,7 +2,11 @@
 TwowayViewPager can be used on Mobile and TV
 
 简单使用
-
+   
+    <android.support.v4.view.TwowayViewPager
+    ....
+    />
+    
     VPager = (TwowayViewPager) findViewById(R.id.vertical_pager);
     HPager = (TwowayViewPager) findViewById(R.id.horizontal_pager);
     // 设置ViewPager方向
