@@ -98,7 +98,7 @@ public class TwowayViewPager extends ViewGroup {
     private static final boolean USE_CACHE = false;
 
     private static final int DEFAULT_OFFSCREEN_PAGES = 1;
-    private static final int MAX_SETTLE_DURATION = 600; // ms
+    private static int MAX_SETTLE_DURATION = 600; // ms
     private static final int MIN_DISTANCE_FOR_FLING = 25; // dips
 
     private static final int DEFAULT_GUTTER_SIZE = 16; // dips
@@ -300,7 +300,7 @@ public class TwowayViewPager extends ViewGroup {
          * @param positionOffset       Value from [0, 1) indicating the offset from the page at position.
          * @param positionOffsetPixels Value in pixels indicating the offset from position.
          */
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
+        void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
 
         /**
          * This method will be invoked when a new page becomes selected. Animation is not
@@ -308,7 +308,7 @@ public class TwowayViewPager extends ViewGroup {
          *
          * @param position Position index of the new selected page.
          */
-        public void onPageSelected(int position);
+        void onPageSelected(int position);
 
         /**
          * Called when the scroll state changes. Useful for discovering when the user
@@ -320,7 +320,7 @@ public class TwowayViewPager extends ViewGroup {
          * @see ViewPager#SCROLL_STATE_DRAGGING
          * @see ViewPager#SCROLL_STATE_SETTLING
          */
-        public void onPageScrollStateChanged(int state);
+        void onPageScrollStateChanged(int state);
     }
 
     /**
@@ -437,6 +437,15 @@ public class TwowayViewPager extends ViewGroup {
             enableLayers(newState != SCROLL_STATE_IDLE);
         }
         dispatchOnScrollStateChanged(newState);
+    }
+
+    /**
+     * Set the ViewPager scroll duration
+     *
+     * @param duration ms
+     */
+    public void setDuration(int duration) {
+        MAX_SETTLE_DURATION = duration;
     }
 
     /**
@@ -944,7 +953,7 @@ public class TwowayViewPager extends ViewGroup {
             }
             duration = Math.min(duration, MAX_SETTLE_DURATION);
 
-            mScroller.startScroll(sx, sy, dx, dy, duration);
+            mScroller.startScroll(sx, sy, dx, dy, MAX_SETTLE_DURATION);
             ViewCompat.postInvalidateOnAnimation(this);
         } else {
             final int height = getClientHeight();
@@ -964,7 +973,7 @@ public class TwowayViewPager extends ViewGroup {
             }
             duration = Math.min(duration, MAX_SETTLE_DURATION);
 
-            mScroller.startScroll(sx, sy, dx, dy, duration);
+            mScroller.startScroll(sx, sy, dx, dy, MAX_SETTLE_DURATION);
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
